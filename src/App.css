@@ -1,0 +1,299 @@
+/* Twilland.css - 和風デザイン（Apple風フォント版） */
+
+:root {
+  --shiro: #fffffc; /* 白 */
+  --sumi: #252525; /* 墨 */
+  --aka: #a22041; /* 赤 */
+  --kon: #0a3a4a; /* 紺 */
+  --wa-midori: #6b7d6a; /* 和緑 */
+  --washi: #f5f2e8; /* 和紙色 */
+  --kikyo: #5654a2; /* 桔梗 */
+  --sakura: #f6e1e0; /* 桜色 */
+  --kamenozoki: #e6e4d4; /* 甕覗き */
+  --kihada: #f8f4b7; /* 黄檗 */
+  --shadow-wa: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --transition-wa: all 0.3s ease-out;
+}
+
+/* ベーススタイル */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-weight: 500;
+  color: var(--sumi);
+  background-color: var(--washi);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f5f2e8"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23e6e4d4" stroke-width="0.5"/></svg>');
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ヘッダー */
+.header {
+  background-color: var(--shiro);
+  border-bottom: 1px solid var(--kamenozoki);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--sumi);
+  margin: 0;
+  padding-left: 1.5rem;
+  position: relative;
+  letter-spacing: 0.2em;
+}
+
+.header h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--aka);
+  border-radius: 50%;
+}
+
+/* テーブル */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--shiro);
+  border: 1px solid var(--kamenozoki);
+  position: relative;
+}
+
+.table::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 1px solid var(--kamenozoki);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.th {
+  background-color: var(--kon);
+  color: var(--shiro);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1.25rem 1rem;
+  border-bottom: 2px solid var(--sumi);
+  letter-spacing: 0.1em;
+}
+
+.td {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid var(--kamenozoki);
+  transition: var(--transition-wa);
+  position: relative;
+}
+
+/* セル状態 */
+.bg-green-500 {
+  background-color: var(--wa-midori);
+  color: var(--shiro);
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-green-500::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="%23ffffff" stroke-width="0.5"/><path d="M6,10 L9,13 L14,7" fill="none" stroke="%23ffffff" stroke-width="1.5" stroke-linecap="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.bg-gray-200 {
+  background-color: transparent;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><rect width="10" height="10" fill="%23f5f2e8"/><path d="M0,0 L10,10 M10,0 L0,10" stroke="%23e6e4d4" stroke-width="0.3"/></svg>');
+}
+
+.w-6, .h-6 {
+  width: 28px;
+  height: 28px;
+}
+
+/* ボタン */
+.button {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-weight: 500;
+  background-color: var(--shiro);
+  color: var(--kon);
+  border: 1px solid var(--kon);
+  border-radius: 0;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-wa);
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--kon);
+  transition: var(--transition-wa);
+  z-index: -1;
+}
+
+.button:hover {
+  color: var(--shiro);
+}
+
+.button:hover::before {
+  left: 0;
+}
+
+/* カード */
+.card {
+  background-color: var(--shiro);
+  border-radius: 0;
+  box-shadow: var(--shadow-wa);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--kamenozoki);
+  position: relative;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23fffffc"/><path d="M0,20 L100,20 M0,40 L100,40 M0,60 L100,60 M0,80 L100,80" stroke="%23e6e4d4" stroke-width="0.5"/></svg>');
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--aka), var(--kikyo));
+}
+
+/* 従業員チップ */
+.employee-chip {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-weight: 500;
+  background-color: var(--kon);
+  color: var(--shiro);
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  display: inline-block;
+  margin: 0.25rem;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+}
+
+.employee-chip::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0) 45%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 55%
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+
+
+/* 和風アクセント */
+.wa-border {
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.wa-border::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--aka), transparent);
+}
+
+/* 四季のテーマ */
+.spring-theme {
+  --aka: #a22041;
+  --kon: #0a3a4a;
+  --wa-midori: #6b7d6a;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f5f2e8"/><path d="M20,20 Q50,0 80,20 M30,40 Q50,20 70,40 M40,60 Q50,40 60,60" stroke="%23f6e1e0" stroke-width="2" fill="none"/></svg>');
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
+  }
+  
+  .th, .td {
+    padding: 1rem 0.75rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+}
+/* ボタン全体のスタイル */
+button {
+  padding: 8px 16px;            /* ボタン内の余白（上下, 左右） */
+  font-size: 16px;               /* 文字サイズ */
+  margin: 12px 0;                /* 上下に距離をつける */
+  border-radius: 8px;            /* 角を少し丸く */
+  border: none;                  /* 枠線を消す（好みに応じて変更可） */
+  background-color: #0a3a4a;     /* 背景色（好みに応じて変更可） */
+  color: white;                  /* 文字色 */
+  cursor: pointer;               /* ホバー時にカーソルをポインターに */
+  transition: background-color 0.3s ease;
+}
+
+/* ホバー時のエフェクト */
+button:hover {
+  background-color: #0a3a4a;
+}
+
+/* ボタン同士、または上下の要素との距離が欲しい場合 */
+.button-container {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center; /* 中央寄せしたい場合 */
+}
